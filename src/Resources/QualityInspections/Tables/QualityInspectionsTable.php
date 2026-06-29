@@ -2,7 +2,7 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityInspections\Tables;
 
-use Filament\Actions;
+use Filament\Tables\Actions;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -60,11 +60,11 @@ class QualityInspectionsTable
                     ->label('Type')
                     ->options(self::typeOptions()),
             ])
-            ->recordActions([
+            ->actions([
                 Actions\EditAction::make(),
                 Actions\DeleteAction::make(),
             ])
-            ->toolbarActions([
+            ->bulkActions([
                 Actions\BulkActionGroup::make([
                     Actions\DeleteBulkAction::make(),
                 ]),

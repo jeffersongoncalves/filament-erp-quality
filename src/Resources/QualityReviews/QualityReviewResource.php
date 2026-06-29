@@ -2,10 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityReviews;
 
-use BackedEnum;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Quality\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Quality\FilamentErpQualityPlugin;
@@ -18,7 +16,7 @@ use JeffersonGoncalves\FilamentErp\Quality\Resources\QualityReviews\Tables\Quali
 
 class QualityReviewResource extends Resource
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChartBar;
+    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
 
     protected static ?int $navigationSort = 13;
 
@@ -38,9 +36,9 @@ class QualityReviewResource extends Resource
         }
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return QualityReviewForm::configure($schema);
+        return QualityReviewForm::configure($form);
     }
 
     public static function table(Table $table): Table

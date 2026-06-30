@@ -2,8 +2,10 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityProcedures;
 
-use Filament\Forms\Form;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Quality\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Quality\FilamentErpQualityPlugin;
@@ -16,7 +18,7 @@ use JeffersonGoncalves\FilamentErp\Quality\Resources\QualityProcedures\Tables\Qu
 
 class QualityProcedureResource extends Resource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
 
     protected static ?int $navigationSort = 2;
 
@@ -36,9 +38,9 @@ class QualityProcedureResource extends Resource
         }
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return QualityProcedureForm::configure($form);
+        return QualityProcedureForm::configure($schema);
     }
 
     public static function table(Table $table): Table

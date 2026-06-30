@@ -2,11 +2,11 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityInspections\RelationManagers;
 
+use Filament\Actions;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables\Actions;
+use Filament\Schemas\Schema;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Quality\Enums\ReadingStatus;
@@ -17,11 +17,11 @@ class ReadingsRelationManager extends RelationManager
 
     protected static ?string $title = 'Readings';
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->columns(2)
-            ->schema([
+            ->components([
                 TextInput::make('specification')
                     ->label('Specification')
                     ->required()
@@ -68,11 +68,11 @@ class ReadingsRelationManager extends RelationManager
             ->headerActions([
                 Actions\CreateAction::make(),
             ])
-            ->actions([
+            ->recordActions([
                 Actions\EditAction::make(),
                 Actions\DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 Actions\BulkActionGroup::make([
                     Actions\DeleteBulkAction::make(),
                 ]),

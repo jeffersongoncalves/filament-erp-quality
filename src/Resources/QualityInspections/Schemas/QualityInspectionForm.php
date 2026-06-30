@@ -3,20 +3,20 @@
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityInspections\Schemas;
 
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use JeffersonGoncalves\Erp\Quality\Enums\InspectionResult;
 use JeffersonGoncalves\Erp\Quality\Enums\InspectionType;
 
 class QualityInspectionForm
 {
-    public static function configure(Schema $schema): Schema
+    public static function configure(Form $form): Form
     {
-        return $schema
+        return $form
             ->columns(null)
-            ->components([
+            ->schema([
                 Section::make('Item')
                     ->schema([
                         TextInput::make('item_code')

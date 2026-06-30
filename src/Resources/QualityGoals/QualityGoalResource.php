@@ -2,8 +2,10 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityGoals;
 
-use Filament\Forms\Form;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Quality\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Quality\FilamentErpQualityPlugin;
@@ -16,7 +18,7 @@ use JeffersonGoncalves\FilamentErp\Quality\Resources\QualityGoals\Tables\Quality
 
 class QualityGoalResource extends Resource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-flag';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFlag;
 
     protected static ?int $navigationSort = 1;
 
@@ -36,9 +38,9 @@ class QualityGoalResource extends Resource
         }
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return QualityGoalForm::configure($form);
+        return QualityGoalForm::configure($schema);
     }
 
     public static function table(Table $table): Table

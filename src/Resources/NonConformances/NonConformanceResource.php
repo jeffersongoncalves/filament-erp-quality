@@ -2,8 +2,10 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\NonConformances;
 
-use Filament\Forms\Form;
+use BackedEnum;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Quality\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Quality\FilamentErpQualityPlugin;
@@ -15,7 +17,7 @@ use JeffersonGoncalves\FilamentErp\Quality\Resources\NonConformances\Tables\NonC
 
 class NonConformanceResource extends Resource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-exclamation-triangle';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedExclamationTriangle;
 
     protected static ?int $navigationSort = 11;
 
@@ -35,9 +37,9 @@ class NonConformanceResource extends Resource
         }
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return NonConformanceForm::configure($form);
+        return NonConformanceForm::configure($schema);
     }
 
     public static function table(Table $table): Table

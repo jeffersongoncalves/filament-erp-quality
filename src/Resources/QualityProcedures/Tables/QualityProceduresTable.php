@@ -2,7 +2,7 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityProcedures\Tables;
 
-use Filament\Tables\Actions;
+use Filament\Actions;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -30,11 +30,11 @@ class QualityProceduresTable
                     ->searchable(),
             ])
             ->defaultSort('quality_procedure_name')
-            ->actions([
+            ->recordActions([
                 Actions\EditAction::make(),
                 Actions\DeleteAction::make(),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 Actions\BulkActionGroup::make([
                     Actions\DeleteBulkAction::make(),
                 ]),

@@ -2,10 +2,8 @@
 
 namespace JeffersonGoncalves\FilamentErp\Quality\Resources\QualityInspectionTemplates;
 
-use BackedEnum;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use JeffersonGoncalves\Erp\Quality\Support\ModelResolver;
 use JeffersonGoncalves\FilamentErp\Quality\FilamentErpQualityPlugin;
@@ -18,7 +16,7 @@ use JeffersonGoncalves\FilamentErp\Quality\Resources\QualityInspectionTemplates\
 
 class QualityInspectionTemplateResource extends Resource
 {
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentList;
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     protected static ?int $navigationSort = 3;
 
@@ -38,9 +36,9 @@ class QualityInspectionTemplateResource extends Resource
         }
     }
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return QualityInspectionTemplateForm::configure($schema);
+        return QualityInspectionTemplateForm::configure($form);
     }
 
     public static function table(Table $table): Table
